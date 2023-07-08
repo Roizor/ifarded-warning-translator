@@ -25,7 +25,7 @@
 			<li class="key" id="isBannable">Bannable</li>
 			<li class="key" id="isMutable">Mutable</li>
 			<li class="key" id="isInstant">Instant</li>
-			<li class="key" id="warnTime">Timed punishment for 1H</li>
+			<li class="key" id="isTimed">Timed punishment for 1H</li>
 		</ul>
 	</div>
 
@@ -40,6 +40,7 @@
 				}
 			})
 			document.getElementById('warnLevel').innerText = 'Warning level ' + obj.warnLevel;
+			if(obj.isTimed !== false) document.getElementById('isTimed').innerText = 'Timed punishment for ' + obj.isTimed;
 		}
 	</script>
 </main>
