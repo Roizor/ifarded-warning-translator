@@ -4,6 +4,7 @@ const iF = {
 	 * @param {string} warnString 
 	 * This is your iF punish/warn string.
 	 * Example: W3VIB!M+1H
+	 * @returns iF Translated Warning String
 	 */
 	translate: (warnString) => {
 		const warnLevel = warnString.split('W')[1].split('')[0];
@@ -26,6 +27,17 @@ const iF = {
 		console.log(obj)
 	},
 
+	/**
+	 * Create your own iF Formatted Warning string
+	 * @param {string} warnLevel 
+	 * @param {boolean} voice 
+	 * @param {boolean} identifiable 
+	 * @param {boolean} bannable 
+	 * @param {boolean} mutable 
+	 * @param {boolean} instant 
+	 * @param {string} time 
+	 * @returns iF Formatted String
+	 */
 	construct: (warnLevel = "0", voice = false, identifiable = false, bannable = false, mutable = false, instant = false, time = "") => {
 		if (voice) voice = "V";
 		if (identifiable) identifiable = "I";
@@ -36,3 +48,5 @@ const iF = {
 		return `W${warnLevel}${voice}${identifiable}${bannable}${mutable}${instant}${time}`;
 	}
 }
+
+iF.construct()
