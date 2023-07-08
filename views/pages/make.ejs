@@ -11,33 +11,42 @@
 
 <main>
   <div class="jumbotron">
+    <h1 id="output">Create your own warning string</h1>
     <label for="warnLevel">Warn level</label>
     <input type="range" min="1" max="9" id="warnLevel">
     <br />
     <label for="isVoice">Applies to voice?</label>
-    <input type="checkbox" id="isIdentifiable">
+    <input type="checkbox" id="isVoice">
     <br />
     <label for="isIdentifiable">Identifiable?</label>
     <input type="checkbox" id="isIdentifiable">
     <br />
     <label for="isBannable">Bannable?</label>
-    <input type="checkbox" id="isIdentifiable">
+    <input type="checkbox" id="isBannable">
     <br />
     <label for="isMutable">Mutable?</label>
-    <input type="checkbox" id="isIdentifiable">
+    <input type="checkbox" id="isMutable">
     <br />
-    <label for="isinstant">Instant?</label>
-    <input type="checkbox" id="isIdentifiable">
+    <label for="isInstant">Instant?</label>
+    <input type="checkbox" id="isInstant">
     <br />
-    <label for="warnLevel">Timed?</label>
-    <input type="text" id="warnLevel" placeholder="1H">
+    <label for="warnTime">Timed?</label>
+    <input type="text" id="warnTime" placeholder="1H">
     <br />
     <input type="submit" value="Create" onclick="doTheThing()">
 	</div>
 
 	<script>
 		const doTheThing = () => {
-			
+			const warnLevel = document.querySelector('#warnLevel').value;
+			const isVoice = document.querySelector('#isVoice');
+      const isIdentifiable = document.querySelector('#isIdentifiable');
+      const isBannable = document.querySelector('#isBannable');
+      const isMutable = document.querySelector('#isMutable');
+      const isInstant = document.querySelector('#isInstant');
+      const warnTime = document.querySelector('#warnTime').value;
+
+      document.querySelector('#output').innerText = iF.construct(warnLevel, isVoice, isIdentifiable, isBannable, isMutable, isInstant, warnTime)
 		}
 	</script>
 </main>
