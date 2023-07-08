@@ -50,4 +50,4 @@ const iF = {
 }
 const not = (d) => {return !d};
 if (not("iF" in window)) Object.assign(iF, window['iF']);
-module.exports = iF;
+if (typeof module == "object") module.exports = iF;

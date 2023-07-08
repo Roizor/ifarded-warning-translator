@@ -8,6 +8,10 @@ app.get('/', ({res}) => {
   res.render('pages/index');
 });
 
+app.get('/make', ({res}) => {
+  res.render('pages/make');
+});
+
 app.get('/lib', ({res}) => {
 	res.sendFile(require('path').resolve('./src/lib/if.js'));
 });
