@@ -32,9 +32,10 @@
 	<script>
 		const doTheThing = (th) => {
 			if (th.value == "") th.value = "W3VIB!M+1H";
+			document.querySelectorAll('li').forEach(elem => elem.style.display = 'none');
 			const obj = iF.translate(th.value);
 			Object.keys(obj).forEach(key => {
-				if (document.getElementById(key)) {
+				if (document.getElementById(key) && obj[key] !== false) {
 					document.getElementById(key).style.display = 'block';
 				}
 			})
