@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+	<style>
+		ul > li {
+			display: none
+		}
+	</style>
 </head>
 <body class="container">
 
@@ -12,8 +17,29 @@
 <main>
   <div class="jumbotron">
     <input type="text" id="ws" placeholder="W3VIB!M+1H">
-		<input type="submit" value="Translate">
-  </div>
+		<input type="submit" value="Translate" onclick="doTheThing(document.getElementById('ws'))">
+		<ul>
+			<li id="warnLevel">Warning level 3</li>
+			<li id="isVoice">Applies to voice</li>
+			<li id="isIdentifiable">Identifiable</li>
+			<li id="isBannable">Bannable</li>
+			<li id="isMutable">Mutable</li>
+			<li id="isInstant">Instant</li>
+			<li id="warnTime">Timed punishment for 1H</li>
+		</ul>
+	</div>
+
+	<script>
+		const doTheThing = (th) => {
+			if (th.value == "") th.value = "W3VIB!M+1H";
+			const obj = iF.translate(th.value);
+			Object.keys(obj).forEach(key => {
+				if (document.getElementById(key)) {
+					document.getElementById(key).style.display = 'block';
+				}
+			})
+		}
+	</script>
 </main>
 
 <footer>
