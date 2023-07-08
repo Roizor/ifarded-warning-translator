@@ -46,7 +46,8 @@ const iF = {
 		if (instant) instant = "!";
 		if (time) time = "+" + time;
 		return `W${warnLevel}${voice}${identifiable}${bannable}${mutable}${instant}${time}`;
-	}
+	},
 }
-
-console.log(iF.translate(iF.construct(0, true, true, true, true, "", "1H")))
+const not = (d) => {return !d};
+if (not("iF" in window)) Object.assign(iF, window['iF']);
+module.exports = iF;
