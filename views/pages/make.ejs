@@ -11,9 +11,35 @@
 
 <main>
   <div class="jumbotron">
-    <h1>This is great</h1>
-    <p>Welcome to templating using EJS</p>
-  </div>
+    <label for="warnLevel">Warn level</label>
+    <input type="range" min="1" max="9" id="warnLevel">
+    <br />
+    <label for="isVoice">Applies to voice?</label>
+    <input type="checkbox" id="isIdentifiable">
+    <br />
+    <label for="isIdentifiable">Identifiable?</label>
+    <input type="checkbox" id="isIdentifiable">
+    <br />
+    <label for="isBannable">Bannable?</label>
+    <input type="checkbox" id="isIdentifiable">
+    <br />
+    <label for="isMutable">Mutable?</label>
+    <input type="checkbox" id="isIdentifiable">
+    <br />
+    <label for="isinstant">Instant?</label>
+    <input type="checkbox" id="isIdentifiable">
+    <br />
+    <label for="warnLevel">Timed?</label>
+    <input type="text" id="warnLevel" placeholder="1H">
+    <br />
+    <input type="submit" value="Create" onclick="doTheThing()">
+	</div>
+
+	<script>
+		const doTheThing = () => {
+			
+		}
+	</script>
 </main>
 
 <footer>
