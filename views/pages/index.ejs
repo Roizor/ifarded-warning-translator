@@ -3,7 +3,7 @@
 <head>
   <%- include('../partials/head'); %>
 	<style>
-		ul > li {
+		.keys > li {
 			display: none
 		}
 	</style>
@@ -18,27 +18,28 @@
   <div class="jumbotron">
     <input type="text" id="ws" placeholder="W3VIB!M+1H">
 		<input type="submit" value="Translate" onclick="doTheThing(document.getElementById('ws'))">
-		<ul>
-			<li id="warnLevel">Warning level 3</li>
-			<li id="isVoice">Applies to voice</li>
-			<li id="isIdentifiable">Identifiable</li>
-			<li id="isBannable">Bannable</li>
-			<li id="isMutable">Mutable</li>
-			<li id="isInstant">Instant</li>
-			<li id="warnTime">Timed punishment for 1H</li>
+		<ul class="keys">
+			<li class="key" id="warnLevel">Warning level 3</li>
+			<li class="key" id="isVoice">Applies to voice</li>
+			<li class="key" id="isIdentifiable">Identifiable</li>
+			<li class="key" id="isBannable">Bannable</li>
+			<li class="key" id="isMutable">Mutable</li>
+			<li class="key" id="isInstant">Instant</li>
+			<li class="key" id="warnTime">Timed punishment for 1H</li>
 		</ul>
 	</div>
 
 	<script>
 		const doTheThing = (th) => {
 			if (th.value == "") th.value = "W3VIB!M+1H";
-			document.querySelectorAll('li').forEach(elem => elem.style.display = 'none');
+			document.querySelectorAll('.key').forEach(elem => elem.style.display = 'none');
 			const obj = iF.translate(th.value);
 			Object.keys(obj).forEach(key => {
 				if (document.getElementById(key) && obj[key] !== false) {
 					document.getElementById(key).style.display = 'block';
 				}
 			})
+			document.getElementById('warnLevel').innerText = 'Warning level ' + obj.warnLevel;
 		}
 	</script>
 </main>
