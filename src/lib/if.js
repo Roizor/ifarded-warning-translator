@@ -24,12 +24,12 @@ const iF = {
 			isInstant,
 			isTimed
 		})
-		console.log(obj)
+		return obj;
 	},
 
 	/**
 	 * Create your own iF Formatted Warning string
-	 * @param {string} warnLevel 
+	 * @param {number} warnLevel 
 	 * @param {boolean} voice 
 	 * @param {boolean} identifiable 
 	 * @param {boolean} bannable 
@@ -38,7 +38,7 @@ const iF = {
 	 * @param {string} time 
 	 * @returns iF Formatted String
 	 */
-	construct: (warnLevel = "0", voice = false, identifiable = false, bannable = false, mutable = false, instant = false, time = "") => {
+	construct: (warnLevel = 0, voice = "", identifiable = "", bannable = "", mutable = "", instant = "", time = "") => {
 		if (voice) voice = "V";
 		if (identifiable) identifiable = "I";
 		if (bannable) bannable = "B";
@@ -49,4 +49,4 @@ const iF = {
 	}
 }
 
-iF.construct()
+console.log(iF.translate(iF.construct(0, true, true, true, true, "", "1H")))
