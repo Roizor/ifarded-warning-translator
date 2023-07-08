@@ -4,9 +4,13 @@ const app = express();
 const server = http.createServer(app);
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('pages/index')
-})
+app.get('/', ({res}) => {
+  res.render('pages/index');
+});
+
+app.get('/lib', ({res}) => {
+	res.sendFile(require('path').resolve('./src/lib/if.js'));
+});
 
 
 server.listen(6969, () => {
